@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/len/Desktop/GP/project/GPUParallelApplication",
+      "program": "/Users/len/Desktop/GP/project/GPUParallelApplication/build/Debug/outDebug"
+    }
+  ]
+}
