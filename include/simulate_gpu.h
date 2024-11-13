@@ -3,6 +3,6 @@
 
 #include <vector>
 
-std::vector<float> simulateReturnsGPU(float meanReturn, float stdDev, int numPaths);
+std::vector<float> simulateReturnsGPU(int numPaths, float meanReturn, float stdDev);
 
 #endif

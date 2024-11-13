@@ -3,6 +3,6 @@
 
 #include <vector>
 
-float calculateVaR(std::vector<float>& returns, float confidenceLevel);
+float calculateVaR(const std::vector<float>& returns, float confidenceLevel);
 
 #endif 

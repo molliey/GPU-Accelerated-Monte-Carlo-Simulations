@@ -2,7 +2,7 @@
 #include <vector>
 #include <random>
 
-std::vector<float> simulateReturnsCPU(float meanReturn, float stdDev, int numPaths) {
+std::vector<float> simulateReturnsCPU(int numPaths, float meanReturn, float stdDev) {
     std::vector<float> returns(numPaths);
     std::random_device rd;
     std::mt19937 gen(rd());

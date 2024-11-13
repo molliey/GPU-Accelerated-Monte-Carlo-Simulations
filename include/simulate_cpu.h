@@ -3,6 +3,6 @@
 
 #include <vector>
 
-std::vector<float> simulateReturnsCPU(float meanReturn, float stdDev, int numPaths);
+std::vector<float> simulateReturnsCPU(int numPaths, float meanReturn, float stdDev);
 
 #endif

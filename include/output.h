@@ -3,6 +3,6 @@
 
 #include <string>
 
-void outputResults(float cpuVaR, float gpuVaR, const std::string& outputPath);
+void outputResults(float cpuVaR, float gpuVaR, double cpuTime, double gpuTime);
 
 #endif 

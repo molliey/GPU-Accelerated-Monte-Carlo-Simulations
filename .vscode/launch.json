@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/len/Desktop/GP/project/GPUParallelApplication",
-      "program": "/Users/len/Desktop/GP/project/GPUParallelApplication/build/Debug/outDebug"
+      "cwd": "/Users/len/Desktop/GP/project/GPUParallelApplication/src",
+      "program": "/Users/len/Desktop/GP/project/GPUParallelApplication/src/build/Debug/outDebug"
     }
   ]
 }

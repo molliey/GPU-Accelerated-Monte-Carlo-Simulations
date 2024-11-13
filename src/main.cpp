@@ -1,26 +1,34 @@
 #include <iostream>
+#include <chrono>
+#include <vector>
 #include "simulate_cpu.h"
 #include "simulate_gpu.h"
 #include "calculate.h"
 #include "output.h"
 
 int main() {
-    const int NUM_PATHS = 100000;
-    const float MEAN_RETURN = 0.0005;
-    const float STD_DEV = 0.02;
-    const float CONFIDENCE_LEVEL = 0.95;
+    int numPaths = 100000;
+    float meanReturn = 0.0005;
+    float stdDev = 0.02;
+    float confidenceLevel = 0.95;
 
-    std::cout << "Running Monte Carlo VaR Simulation...\n";
+    std::cout << "Running Monte Carlo Simulation VaR...\n";
 
     // CPU simulation 
-    std::vector<float> cpuReturns = simulateReturnsCPU(MEAN_RETURN, STD_DEV, NUM_PATHS);
-    float cpuVaR = calculateVaR(cpuReturns, CONFIDENCE_LEVEL);
+    auto cpu_start = std::chrono::high_resolution_clock::now();
+    std::vector<float> cpuReturns = simulateReturnsCPU(numPaths, meanReturn, stdDev); 
+    float cpuVaR = calculateVaR(cpuReturns, confidenceLevel);
+    auto cpu_end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> cpu_elapsed = cpu_end - cpu_start;
 
     // GPU simulation
-    std::vector<float> gpuReturns = simulateReturnsGPU(MEAN_RETURN, STD_DEV, NUM_PATHS);
-    float gpuVaR = calculateVaR(gpuReturns, CONFIDENCE_LEVEL);
+    auto gpu_start = std::chrono::high_resolution_clock::now();
+    std::vector<float> gpuReturns = simulateReturnsGPU(numPaths, meanReturn, stdDev);
+    float gpuVaR = calculateVaR(gpuReturns, confidenceLevel);
+    auto gpu_end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> gpu_elapsed = gpu_end - gpu_start;
 
-    outputResults(cpuVaR, gpuVaR, "output.csv");
+    outputResults(cpuVaR, gpuVaR, cpu_elapsed.count(), gpu_elapsed.count());
 
     return 0;
 }
