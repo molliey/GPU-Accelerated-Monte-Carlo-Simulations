@@ -21,6 +21,7 @@ int main() {
     auto cpu_end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> cpu_elapsed = cpu_end - cpu_start;
 
+
     // GPU simulation
     auto gpu_start = std::chrono::high_resolution_clock::now();
     std::vector<float> gpuReturns = simulateReturnsGPU(numPaths, meanReturn, stdDev);
