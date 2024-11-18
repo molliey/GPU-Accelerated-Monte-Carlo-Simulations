@@ -15,12 +15,11 @@ __global__ void monteCarloCombinedKernel(float* d_returns, int numPaths, float m
     d_returns[tid] = mean + stdDev * curand_normal(&states[tid]);
 }
 
-// Function to calculate VaR directly on the GPU using Thrust
 float calculateVaRGPU(float* d_returns, int numPaths, float confidenceLevel) {
-    // Wrap raw pointer in Thrust device vector
+    // Wrap the raw pointer in a Thrust device vector
     thrust::device_vector<float> d_vec(d_returns, d_returns + numPaths);
 
-    // Sort the returns on the GPU
+    // Sort the vector on the GPU using Thrust
     thrust::sort(d_vec.begin(), d_vec.end());
 
     // Calculate the VaR (5th percentile for 95% confidence level)
@@ -28,27 +27,13 @@ float calculateVaRGPU(float* d_returns, int numPaths, float confidenceLevel) {
     return -d_vec[index];
 }
 
-// Updated simulateReturnsGPU function with float return type
-float simulateReturnsGPU(int numPaths, float mean, float stdDev) {
-    float* d_returns;
-    cudaMalloc(&d_returns, numPaths * sizeof(float));
-
-    curandState* d_states;
-    cudaMalloc(&d_states, numPaths * sizeof(curandState));
-
+void simulateReturnsGPU(int numPaths, float mean, float stdDev, float* d_returns, curandState* d_states) {
     int blockSize = 512;
     int gridSize = (numPaths + blockSize - 1) / blockSize;
 
-    // Launch the combined kernel
     unsigned long seed = clock();
     monteCarloCombinedKernel<<<gridSize, blockSize>>>(d_returns, numPaths, mean, stdDev, d_states, seed);
 
-    // Calculate VaR directly on the GPU
-    float gpuVaR = calculateVaRGPU(d_returns, numPaths, 0.95);
-
-    // Free GPU memory
-    cudaFree(d_states);
-    cudaFree(d_returns);
-
-    return gpuVaR;
+    // Synchronize to ensure the kernel has finished
+    cudaDeviceSynchronize();
 }
