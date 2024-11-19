@@ -15,18 +15,6 @@ __global__ void monteCarloCombinedKernel(float* d_returns, int numPaths, float m
     d_returns[tid] = mean + stdDev * curand_normal(&states[tid]);
 }
 
-float calculateVaRGPU(float* d_returns, int numPaths, float confidenceLevel) {
-    // Wrap the raw pointer in a Thrust device vector
-    thrust::device_vector<float> d_vec(d_returns, d_returns + numPaths);
-
-    // Sort the vector on the GPU using Thrust
-    thrust::sort(d_vec.begin(), d_vec.end());
-
-    // Calculate the VaR (5th percentile for 95% confidence level)
-    int index = static_cast<int>((1.0 - confidenceLevel) * numPaths);
-    return -d_vec[index];
-}
-
 void simulateReturnsGPU(int numPaths, float mean, float stdDev, float* d_returns, curandState* d_states) {
     int blockSize = 512;
     int gridSize = (numPaths + blockSize - 1) / blockSize;

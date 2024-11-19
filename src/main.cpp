@@ -6,7 +6,8 @@
 #include <curand_kernel.h>
 #include "simulate_cpu.h"
 #include "simulate_gpu.h"
-#include "calculate.h"
+#include "calculate_cpu.h"
+#include "calculate_gpu.h"
 #include "output.h"
 
 int main() {
@@ -37,7 +38,7 @@ int main() {
         auto cpu_end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> cpu_elapsed = cpu_end - cpu_start;
 
-        // GPU simulation with cudaMalloc and cudaFree included in timing
+        // GPU simulation
         auto gpu_start = std::chrono::high_resolution_clock::now();
 
         // Allocate GPU memory
