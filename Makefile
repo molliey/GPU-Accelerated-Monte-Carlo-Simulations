@@ -13,8 +13,8 @@ EXEC = $(BIN)/monte_carlo_sim
 
 # source files
 MAIN_SRC = $(SRC)/main.cpp
-CPU_SRCS = $(SRC)/simulate_cpu.cpp $(SRC)/calculate.cpp $(SRC)/output.cpp
-GPU_SRCS = $(SRC)/simulate_gpu.cu
+CPU_SRCS = $(SRC)/simulate_cpu.cpp $(SRC)/calculate_cpu.cpp $(SRC)/output.cpp
+GPU_SRCS = $(SRC)/simulate_gpu.cu $(SRC)/calculate_gpu.cu
 
 # object files
 MAIN_OBJ = $(MAIN_SRC:.cpp=.o)
