@@ -12,7 +12,7 @@
 
 int main() {
     // Define the list of numPaths values
-    std::vector<int> numPathsList = {10000, 50000, 100000, 500000, 1000000, 5000000, 10000000};
+    std::vector<int> numPathsList = {10000, 50000, 100000, 1000000, 10000000};
     float meanReturn = 0.0005;
     float stdDev = 0.02;
     float confidenceLevel = 0.95;
