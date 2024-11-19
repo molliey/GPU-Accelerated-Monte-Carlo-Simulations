@@ -42,3 +42,21 @@ The project includes:
 ```bash
 git clone <repository-url>
 cd GPU-Parallel-Application
+```
+
+## Build the Project
+Run the following commands to compile the code:
+```bash
+make clean
+make
+```
+
+## Usage
+### Running the Program
+The program simulates portfolio returns for different numPaths and benchmarks CPU vs. GPU performance. Provide numPaths as a command-line argument.
+```bash
+./bin/monte_carlo_sim <numPaths>
+```
+### Running for Multiple `numPaths`
+The project also includes an automated script to run multiple simulations and save the results to `results.txt`. Update the list of `numPaths` values in `main.cpp` to customize.
+
