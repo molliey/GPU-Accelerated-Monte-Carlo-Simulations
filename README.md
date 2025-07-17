@@ -75,6 +75,8 @@ Performance was evaluated across four NYU CIMS GPU nodes: CUDA2 (GeForce RTX 208
 - CUDA 4 provided steady and reliable growth, making it a viable option for moderate workloads.
 - CUDA 2 exhibited the least speedup and is better suited for minimal workloads.
 
+
+
 ### CONCLUSION
 
 This project successfully demonstrates the effectiveness of GPU-based parallelization for Monte Carlo simulations in VaR estimation. By optimizing random number generation with cuRAND and sorting with Thrust, substantial performance improvements and scalability were achieved. This work highlights the transformative impact of GPU parallelization on computationally intensive financial tasks, paving the way for faster and more precise risk assessment in real-time scenarios. 
