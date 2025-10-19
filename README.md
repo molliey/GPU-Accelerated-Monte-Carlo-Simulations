@@ -9,23 +9,23 @@ This project implements a **GPU-accelerated Monte Carlo Simulation** for estimat
 
 ## OPTIMIZED TECHNIQUES
 
-**Random Number Generation - cuRAND**：
+**Random Number Generation - cuRAND**:
 - NVIDIA’s GPU library for fast, parallel generation of random numbers (e.g., uniform, normal) directly on the device.
 - cuRAND produces Gaussian draws directly on device.
 
-**Sorting - Thrust**：
+**Sorting - Thrust**:
 - C++ parallel algorithms library (CUDA) providing STL-like primitives (e.g., sort, reduce, transform) operates on GPU memory.
 - Replace naïve GPU/CPU sorts with Thrust device-side sort (radix/merge under the hood).
 
-**Data Transfer**
+**Data Transfer**:
 - Keep the entire Monte Carlo VaR pipeline on the GPU (RNG → simulation → sort/percentile) and send back only the final VaR scalar to the CPU to eliminate large host–device transfers that hurt performance.
 
-**Blocksize Configuration**：
+**Blocksize Configuration**:
 - Threads per CUDA block; controls occupancy, latency hiding, and memory access patterns, impacting kernel throughput.
 - Tested {128, 256, 512, 1024} across 100,000; 1,000,000; 10,000,00 numPaths.
 - 512 delivered the most speedups (balance of occupancy, memory access, and synchronization).
   
-**CUDA Machines**：
+**CUDA Machines**:
 - CUDA2 (NVIDIA GeForce RTX 2080 Ti; RAM 256GB)
 - CUDA3 (NVIDIA TITAN V; RAM: 128GB)
 - CUDA4 (NVIDIA TITAN X; RAM: 128GB)
