@@ -24,16 +24,24 @@ This project implements a **GPU-accelerated Monte Carlo Simulation** for estimat
 - Threads per CUDA block; controls occupancy, latency hiding, and memory access patterns, impacting kernel throughput.
 - Tested {128, 256, 512, 1024} across 100,000; 1,000,000; 10,000,00 numPaths.
 - 512 delivered the most speedups (balance of occupancy, memory access, and synchronization).
-  
+
+<img width="376" height="500" alt="Image" src="https://github.com/user-attachments/assets/83fa3018-6bdc-4805-a780-a767339598b2" />
+
+## EXPERIMENT and ANALYSIS
+
+The experiment was conducted across four different CUDA machines and compare the speedup (GPU Time/CPU Time) among them.
+
 **CUDA Machines**:
 - CUDA2 (NVIDIA GeForce RTX 2080 Ti; RAM 256GB)
 - CUDA3 (NVIDIA TITAN V; RAM: 128GB)
 - CUDA4 (NVIDIA TITAN X; RAM: 128GB)
 - CUDA5 (NVIDIA TITAN Z; RAM: 64GB)
 
-## EXPERIMENT and ANALYSIS
+<img width="522" height="151" alt="Image" src="https://github.com/user-attachments/assets/5c0ddd0b-680a-42aa-8dd1-450980175feb" />
+<img width="514" height="149" alt="Image" src="https://github.com/user-attachments/assets/163493e7-6d9d-4bcb-829e-159c6644be42" />
+<img width="508" height="146" alt="Image" src="https://github.com/user-attachments/assets/be6aeb94-1ebf-4a7b-ad73-c5c25d5a5f67" />
+<img width="507" height="145" alt="Image" src="https://github.com/user-attachments/assets/ec85dbfc-7a80-4543-9205-fcc8c52b973a" />
 
-The experiment was conducted across four different CUDA machines and compare the speedup (GPU Time/CPU Time) among them.
 
 **Results**:
 - CUDA 2 exhibited the least speedup and is better suited for minimal workloads.
