@@ -37,9 +37,9 @@ The experiment was conducted across four different CUDA machines and compare the
 
 **Results**:
 - CUDA 2 exhibited the least speedup and is better suited for minimal workloads.
-- CUDA 3 showed strong performance and scalability, excelling in medium to large workloads with competitive speedups for high workloads.
+- CUDA 3 showed strong performance and scalability, excelling in medium to large workloads with competitive speedups.
 - CUDA 4 provided steady and reliable growth, making it a viable option for moderate workloads.
-- CUDA 5 consistently achieved the highest speedup across all workload sizes, demonstrating exceptional performance for larger workloads.
+- CUDA 5 consistently achieved the highest speedup across all workload sizes and exceptional performance for larger workloads.
 
 **Graph**:
 
