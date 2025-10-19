@@ -58,9 +58,7 @@ The experiment was conducted across four different CUDA machines and compare the
 
 ## CONCLUSION
 
-In this project, we demonstrated the effectiveness of GPU-based parallelization for Monte Carlo Simulations. Our approach focused on optimizing key components such as random number generation using cuRAND, efficient sorting with Thrust, reduced data transfer between host and device, optimized blocksizes and CUDA machines, achieving significant performance improvements and scalability across a range of simulation sizes. 
-
-This work underscores the transformative impact of GPU parallelization on computationally intensive tasks in finance. By integrating state-of-the-art tools and the inherent parallelism of GPUs, we achieved substantial speedup over CPU-based solutions, especially for large-scale simulations. 
+In this project, we demonstrated the effectiveness of GPU-based parallelization for Monte Carlo simulations in VaR estimation. By executing the full pipeline on CUDA—high-throughput random number generation with cuRAND, device-side aggregation and percentile extraction with Thrust, and minimizing host↔device traffic by returning only a final scalar—we achieved substantial, scalable speedups over CPU baselines. Careful kernel launch tuning (threads-per-block, occupancy, coalesced access) and empirical comparisons across multiple CUDA machines further improved throughput and revealed performance crossovers as simulation size grows. Together, these optimizations make large-scale VaR computation practical for near real-time risk workflows and provide a reusable blueprint for other simulation-heavy finance tasks.
 
 
 ## INSTALLATION
