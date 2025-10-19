@@ -7,7 +7,7 @@ This project implements a **GPU-accelerated Monte Carlo Simulation** for estimat
 
 **VaR (Value at Risk)**：A risk metric estimating the maximum expected loss over a specified time horizon at a chosen confidence level.
 
-## ACCELERATION TECHNIQUES
+## OPTIMIZED TECHNIQUES
 
 **Random Number Generation - cuRAND**：
 - NVIDIA’s GPU library for fast, parallel generation of random numbers (e.g., uniform, normal) directly on the device.
