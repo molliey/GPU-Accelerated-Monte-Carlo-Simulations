@@ -42,6 +42,8 @@ The experiment was conducted across four different CUDA machines and compare the
 - CUDA 5 consistently achieved the highest speedup across all workload sizes and exceptional performance for larger workloads.
 
 **Graph**:
+- Graph1 uses a logarithmic scale for the x-axis, focusing on precise comparisons at smaller numPaths.
+- Graph2 uses a linear x-axis with scientific notation to label the numPaths, highlighting general trends in speedup as the workload increases.
 
 <img width="471" height="333" alt="Image" src="https://github.com/user-attachments/assets/29dcd38c-5e47-45df-96ed-8b90210b9952" />
 
