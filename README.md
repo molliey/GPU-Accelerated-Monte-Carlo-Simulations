@@ -11,48 +11,37 @@ This project implements a **GPU-accelerated Monte Carlo Simulation** for estimat
 
 **Random Number Generation - cuRAND**：
 - NVIDIA’s GPU library for fast, parallel generation of random numbers (e.g., uniform, normal) directly on the device.
+- cuRAND produces Gaussian draws directly on device.
 
 **Sorting - Thrust**：
-- A C++ parallel algorithms library (CUDA backend) providing STL-like primitives (e.g., sort, reduce, transform) that operate on GPU memory.
+- C++ parallel algorithms library (CUDA) providing STL-like primitives (e.g., sort, reduce, transform) operates on GPU memory.
+- Replace naïve GPU/CPU sorts with Thrust device-side sort (radix/merge under the hood).
 
-  
+**Data Transfer**
+- Keep the entire Monte Carlo VaR pipeline on the GPU (RNG → simulation → sort/percentile) and send back only the final VaR scalar to the CPU to eliminate large host–device transfers that hurt performance.
+
 **Blocksize Configuration**：
 - Threads per CUDA block; controls occupancy, latency hiding, and memory access patterns, impacting kernel throughput.
-
+- Tested {128, 256, 512, 1024} across 100,000; 1,000,000; 10,000,00 numPaths.
+- 512 delivered the most speedups (balance of occupancy, memory access, and synchronization).
   
-**CUDA machines Comparision**：
-
+**CUDA Machines**：
+- CUDA2 (NVIDIA GeForce RTX 2080 Ti; RAM 256GB)
+- CUDA3 (NVIDIA TITAN V; RAM: 128GB)
+- CUDA4 (NVIDIA TITAN X; RAM: 128GB)
+- CUDA5 (NVIDIA TITAN Z; RAM: 64GB)
 
 ## EXPERIMENT and ANALYSIS
 
-### Block Size Optimization
-
-The experiment was conducted with three scales numPaths (100,000; 1,000,000; 10,000,000) and four block sizes (128, 256, 512, 1024), mainly to compare the GPU speedup and identify the optimal block size configuration.
-
-- For small numPaths, blocksize **128** or **256** has better results due to ability to minimize idle threads and synchronization costs.
-- Blocksize **1024** underperforms in most cases, especially for smaller numPaths, as it introduces inefficiencies in thread utilization and increases synchronization overhead. 
-- Blocksize **512** achieves the best performance balance, offering consistent speedup across a wide range of numPaths, particularly for
-medium to large scale workloads. 
-- Overall, blocksize **512** serves as the optimal configuration.
-
-
-### CUDA Machine Comparison
-
 The experiment was conducted across four different CUDA machines and compare the speedup (GPU Time/CPU Time) among them.
 
-#### CUDA Machines:
-- CUDA2 (NVIDIA GeForce RTX 2080 Ti, RAM 256GB)
-- CUDA3 (NVIDIA TITAN V)
-- CUDA4 (NVIDIA TITAN X)
-- CUDA5 (TITAN Z)
-
-#### Results:
+**Results**:
 - CUDA 2 exhibited the least speedup and is better suited for minimal workloads.
 - CUDA 3 showed strong performance and scalability, excelling in medium to large workloads with competitive speedups for high workloads.
 - CUDA 4 provided steady and reliable growth, making it a viable option for moderate workloads.
 - CUDA 5 consistently achieved the highest speedup across all workload sizes, demonstrating exceptional performance for larger workloads.
 
-#### Graph:
+**Graph**:
 
 
 
