@@ -76,13 +76,12 @@ This work underscores the transformative impact of GPU parallelization on comput
 git clone <repository-url>
 cd GPU-Parallel-Application
 ```
-## Build the Project
+### Build the Project
 Run the following commands to compile the code:
 ```bash
 make clean
 make
 ```
-
 ### Running the Program
 The program simulates portfolio returns for different numPaths and benchmarks CPU vs. GPU performance. Provide numPaths as a command-line argument.
 ```bash
