@@ -43,6 +43,10 @@ The experiment was conducted across four different CUDA machines and compare the
 
 **Graph**:
 
+<img width="471" height="333" alt="Image" src="https://github.com/user-attachments/assets/29dcd38c-5e47-45df-96ed-8b90210b9952" />
+
+<img width="464" height="366" alt="Image" src="https://github.com/user-attachments/assets/ccffb3ea-fe8c-4d0f-a702-4d27cc783032" />
+
 
 
 ## CONCLUSION
