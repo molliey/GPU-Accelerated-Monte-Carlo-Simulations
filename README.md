@@ -9,8 +9,8 @@ This project implements a **GPU-accelerated Monte Carlo Simulation** to estimate
 ### VaR
 ### Random Number Generation cuRAND
 ### Sorting Thrust
-### Blocksize
-### CUDA machines
+### Blocksize Configuration
+### CUDA machines Comparision
 
 ## EXPERIMENT and ANALYSIS
 
