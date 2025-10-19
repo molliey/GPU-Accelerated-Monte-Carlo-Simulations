@@ -56,10 +56,9 @@ The experiment was conducted across four different CUDA machines and compare the
 <img width="464" height="366" alt="Image" src="https://github.com/user-attachments/assets/ccffb3ea-fe8c-4d0f-a702-4d27cc783032" />
 
 
-
 ## CONCLUSION
 
-This project shows that GPU-parallel Monte Carlo dramatically accelerates VaR estimation. With cuRAND for RNG and Thrust for sorting, it delivers large, scalable speedups—enabling faster, more accurate real-time risk assessment.
+In this project, we demonstrated the effectiveness of GPU-based parallelization for Monte Carlo simulations in the context of Value at Risk (VaR) estimation. By using the computational power of CUDA-enabled GPUs, we successfully addressed the challenges posed by the high computational demands of traditional CPU-based implementations. Our approach focused on optimizing key components such as random number generation using cuRAND and efficient sorting with Thrust, achieving significant performance improvements and scalability across a range of simulation sizes. These optimizations enabled the rapid computation of VaR for large portfolios, making real-time risk assessment a practical reality.
 
 
 ## INSTALLATION
