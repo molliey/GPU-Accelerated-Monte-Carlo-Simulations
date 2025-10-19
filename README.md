@@ -1,7 +1,7 @@
 # GPU-Accelerated Monte Carlo Simulations for VaR (Value at Risk)
 
 ## OVERVIEW
-This project implements a **GPU-accelerated Monte Carlo simulation** to estimate **Value at Risk (VaR)**, a critical metric in financial risk management. By leveraging **GPU** and **CUDA**, the implementation demonstrates significant performance improvements over traditional CPU-based methods, particularly for large-scale simulations.
+This project implements a **GPU-accelerated Monte Carlo Simulation** to estimate **Value at Risk (VaR)**, a critical metric in financial risk management. By leveraging **GPU** and **CUDA** techniques, the implementation demonstrates significant performance improvements over traditional CPU-based methods, particularly for large-scale simulations.
 
 The project includes:
 - A Monte Carlo simulation framework for financial risk estimation.
