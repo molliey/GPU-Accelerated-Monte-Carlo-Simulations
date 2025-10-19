@@ -3,21 +3,25 @@
 ## OVERVIEW
 This project implements a **GPU-accelerated Monte Carlo Simulation** for estimating **Value at Risk (VaR)**, a critical metric in financial risk management. Using **GPU** and **CUDA** techniques, it executes end-to-end simulations on the GPU and achieves substantial speedups over a CPU baseline, especially at large path counts.
 
-### Monte Carlo Simulation
-A computational method that estimates quantities by repeatedly sampling random variables and aggregating outcomes; highly parallel and well-suited to GPUs.
+**Monte Carlo Simulation**：A computational method that estimates quantities by repeatedly sampling random variables and aggregating outcomes; highly parallel and well-suited to GPUs.
 
-### VaR (Value at Risk)
-A risk metric estimating the maximum expected loss over a specified time horizon at a chosen confidence level (e.g., 95% or 99%).
-
+**VaR (Value at Risk)**：A risk metric estimating the maximum expected loss over a specified time horizon at a chosen confidence level (e.g., 95% or 99%).
 
 ## ACCELERATION TECHNIQUES
 
+**Random Number Generation - cuRAND**：
+- NVIDIA’s GPU library for fast, parallel generation of random numbers (e.g., uniform, normal) directly on the device.
 
+**Sorting - Thrust**：
+- A C++ parallel algorithms library (CUDA backend) providing STL-like primitives (e.g., sort, reduce, transform) that operate on GPU memory.
 
-### Random Number Generation cuRAND
-### Sorting Thrust
-### Blocksize Configuration
-### CUDA machines Comparision
+  
+**Blocksize Configuration**：
+- Threads per CUDA block; controls occupancy, latency hiding, and memory access patterns, impacting kernel throughput.
+
+  
+**CUDA machines Comparision**：
+
 
 ## EXPERIMENT and ANALYSIS
 
