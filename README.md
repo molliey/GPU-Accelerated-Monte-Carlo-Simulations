@@ -5,7 +5,7 @@ This project implements a **GPU-accelerated Monte Carlo Simulation** for estimat
 
 **Monte Carlo Simulation**：A computational method that estimates quantities by repeatedly sampling random variables and aggregating outcomes; highly parallel and well-suited to GPUs.
 
-**VaR (Value at Risk)**：A risk metric estimating the maximum expected loss over a specified time horizon at a chosen confidence level (e.g., 95% or 99%).
+**VaR (Value at Risk)**：A risk metric estimating the maximum expected loss over a specified time horizon at a chosen confidence level.
 
 ## ACCELERATION TECHNIQUES
 
