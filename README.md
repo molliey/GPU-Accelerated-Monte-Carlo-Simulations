@@ -71,8 +71,8 @@ In this project, we demonstrated the effectiveness of GPU-based parallelization 
 
 ### Clone the Repository
 ```bash
-git clone <repository-url>
-cd GPU-Parallel-Application
+git clone https://github.com/molliey/GPU-Accelerated-Monte-Carlo-Simulations.git
+cd GPU-Accelerated-Monte-Carlo-Simulations
 ```
 ### Build the Project
 Run the following commands to compile the code:
